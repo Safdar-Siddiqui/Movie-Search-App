@@ -10,7 +10,7 @@ e.preventDefault();
 
 const movieName = inputBox.value.trim().toLowerCase();
 const myAPIKey = `a215aa72`;
-const url = `http://www.omdbapi.com/?apikey=${myAPIKey}&t=${movieName}`;
+const url = `https://www.omdbapi.com/?apikey=${myAPIKey}&t=${movieName}`;
 
 
 fetch(url)
