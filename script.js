@@ -5,6 +5,7 @@ let inputBox = document.getElementById('inputBox');
 
 
 
+
 submitBtn.addEventListener('click', function(e){
 e.preventDefault();
 
@@ -12,13 +13,13 @@ const movieName = inputBox.value.trim().toLowerCase();
 const myAPIKey = `a215aa72`;
 const url = `https://www.omdbapi.com/?apikey=${myAPIKey}&t=${movieName}`;
 
-
 fetch(url)
 .then(function(data){
     return data.json()
 })
 .then(function(data){
-        console.log(data);
+        console.log(data.Title);
+
         if(movieName){
             if(data.Title.toLowerCase().includes(movieName)){
                 movieDetails.innerHTML = `
@@ -41,12 +42,12 @@ fetch(url)
 
     }
     else{
-        movieDetails.innerHTML = `<h3 style="margin:auto; text-align:center"> Please Enter a Movie Name to search </h3>`
+        movieDetails.innerHTML = `<h3 style="margin:auto; text-align:center"> Please enter a movie name to search </h3>`
     }
  })
 
  .catch(function(error){
-    console.error('Error:', error);
+    movieDetails.innerHTML = `<h3> There is no such movie! Please enter correct name </h3>`                
 });
 
 })
